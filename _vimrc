@@ -63,7 +63,7 @@ Plugin 'kien/ctrlp.vim'
 " TAGBAR[大纲式导航]
 Plugin 'majutsushi/tagbar'
 " 与命令行 git 工具相辅相成，可以无缝的插入到工作流程中。
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " view
 " airline
 " 状态栏增强展示
@@ -645,7 +645,7 @@ map <leader>tn :tabnext<cr>
 map <leader>tp :tabprev<cr>
 
 map <leader>te :tabedit<cr>
-map <leader>td :tabclose<cr>
+map <leader>tc :tabclose<cr>
 map <leader>tm :tabm<cr>
 
 " normal模式下切换到确切的tab
@@ -1005,6 +1005,8 @@ nnoremap <Leader>sp :lprevious<cr>
 " thank to @ListenerRi, see https://github.com/wklken/k-vim/issues/165
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0
+"NERDTreeMapOpenInTab
+let NERDTreeMapOpenInTab='<ENTER>'
 ""窗口尺寸
 let g:NERDTreeSize=30
 ""窗口是否显示行号
