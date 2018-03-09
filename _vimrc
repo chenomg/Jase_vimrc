@@ -1,10 +1,10 @@
 "==========================================
 " Forked from: https://github.com/wklken/k-vim
 " Author:  Jase Chen
-" Version: 1.5
+" Version: 1.6
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-2-12
+" Last_modify: 2018-3-8
 " Platform: Windows
 " Sections:
 "       -> Initial Plugin 加载插件
@@ -39,7 +39,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 " 自动补全jedi-vim - awesome Python autocompletion with VIM
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 " pep8-indent用于自动缩进
 Plugin 'Vimjas/vim-python-pep8-indent'
 " flake8用于代码检查
