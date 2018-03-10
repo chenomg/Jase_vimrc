@@ -733,6 +733,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "去除所有行末空格，remove trailing whitespace blank
 nnoremap <leader>b :%s/\s\+$//<CR>
 
+"去除所有行末^M，remove trailing ^M
+nnoremap <leader>m :%s/\r//g<CR>
 
 "==========================================
 " FileType Settings  文件类型设置
