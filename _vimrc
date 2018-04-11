@@ -1,7 +1,7 @@
 "==========================================
 " Forked from: https://github.com/wklken/k-vim
 " Author:  Jase Chen
-" Version: 1.7
+" Version: 1.7.1
 " Email: xxmm@live.cn
 " ReadMe: README.md
 " Last_modify: 2018-4-11
@@ -181,20 +181,6 @@ set nobackup
 " 关闭交换文件
 set noswapfile
 
-
-" TODO: remove this, use gundo
-" create undo file
-" if has('persistent_undo')
-  " " How many undos
-  " set undolevels=1000
-  " " number of lines to save for undo
-  " set undoreload=10000
-  " " So is persistent undo ...
-  " "set undofile
-  " set noundofile
-  " " set undodir=/tmp/vimundo/
-" endif
-
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
 " 突出显示当前列
@@ -273,8 +259,27 @@ set scrolloff=7
 " set winwidth=79
 
 " 设置gvim启动窗口的位置，以及大小
-winpos 100 50
+"winpos 100 50
 set lines=35 columns=120
+"设置gVim屏幕居中启动
+function! WindowCenterInScreen()
+    set lines=9999 columns=9999
+    let g:windowsSizeFixX = 58
+    let g:windowsSizeFixY = 118
+    let g:windowsScaleX = 7.75
+    let g:windowsScaleY = 17.0
+    let g:windowsPosOldX = getwinposx()
+    let g:windowsPosOldY = getwinposy()
+    let g:windowsScreenWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsPosOldX + g:windowsSizeFixX
+    let g:windowsScreenHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsPosOldY + g:windowsSizeFixY
+    set lines=30 columns=108
+    let g:windowsSizeWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsSizeFixX
+    let g:windowsSizeHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsSizeFixY
+    let g:windowsPosX = ((g:windowsScreenWidth - g:windowsSizeWidth) / 2)
+    let g:windowsPosY = ((g:windowsScreenHeight - g:windowsSizeHeight) / 2)
+    exec ':winpos ' . g:windowsPosX . ' ' . g:windowsPosY
+endfunc
+au GUIEnter * call WindowCenterInScreen()
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
 "set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
