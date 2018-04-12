@@ -1,11 +1,11 @@
 "==========================================
 " Forked from: https://github.com/wklken/k-vim
 " Author:  Jase Chen
-" Version: 1.7.1
+" Version: 2.0
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-4-11
-" Platform: Windows
+" Last_modify: 2018-4-12
+" Platform: Windows/Mac/Linux
 " Sections:
 "       -> Initial Plugin 加载插件
 "       -> General Settings 基础设置
@@ -332,18 +332,6 @@ set foldmethod=indent
 set foldlevel=99
 "空格键折叠 Enable folding with the spacebar
 nnoremap <space> za
-" 代码折叠自定义快捷键 <leader>zz
-"let g:FoldMethod = 0
-"map <leader>zz :call ToggleFold()<cr>
-"fun! ToggleFold()
-"    if g:FoldMethod == 0
-"        exe "normal! zM"
-"        let g:FoldMethod = 1
-"    else
-"        exe "normal! zR"
-"        let g:FoldMethod = 0
-"    endif
-"endfun
 
 " 缩进配置
 " Smart indent
@@ -400,6 +388,7 @@ if &term =~ '256color'
 endif
 "
 
+" Ctrl-T新建tab时，在tab前添加序号，方便切换
 set tabline=%!MyTabLine()  " custom tab pages line
 function! MyTabLine()
     let s = '' " complete tabline goes here
@@ -470,6 +459,7 @@ function! MyTabLine()
     endif
     return s
 endfunction
+
 "==========================================
 " FileEncode Settings 文件编码,格式
 "==========================================
@@ -515,12 +505,12 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " 回车即选中当前项
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
-" In the quickfix window, <CR> is used to jump to the error under the
-" cursor, so undefine the mapping there.
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-" quickfix window  s/v to open in split window,  ,gd/,jd => quickfix window => open it
-autocmd BufReadPost quickfix nnoremap <buffer> v <C-w><Enter><C-w>L
-autocmd BufReadPost quickfix nnoremap <buffer> s <C-w><Enter><C-w>K
+"" In the quickfix window, <CR> is used to jump to the error under the
+"" cursor, so undefine the mapping there.
+"autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+"" quickfix window  s/v to open in split window,  ,gd/,jd => quickfix window => open it
+"autocmd BufReadPost quickfix nnoremap <buffer> v <C-w><Enter><C-w>L
+"autocmd BufReadPost quickfix nnoremap <buffer> s <C-w><Enter><C-w>K
 
 " command-line window
 autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
@@ -542,12 +532,6 @@ endif
 "==========================================
 
 " 主要按键重定义
-
-" 重新定义方向键。(关闭方向键, 强迫自己用 hjkl)
-"map <Left> <Nop>
-"map <Right> <Nop>
-"map <Up> <C-p> "<Nop>
-"map <Down> <C-n> "<Nop>
 
 "Treat long lines as break lines (useful when moving around in them)
 "se swap之后，同物理行上线直接跳
@@ -589,8 +573,12 @@ nmap <F3> :TagbarToggle<CR>
 "nnoremap <F4> :set wrap! wrap?<CR>
 nmap  <F4> :NERDTreeTabsToggle<cr>
 
-" F5 运行Python Windows
-autocmd! FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+"" F5 运行Python Windows
+"autocmd! FileType python nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
+"" F5 运行Python LINUX
+""autocmd! FileType python nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
+" <leader>r 运行Python
+autocmd! FileType python nnoremap <buffer> <leader>r :exec '!python3' shellescape(@%, 1)<cr>
 " F5 运行Python LINUX
 "autocmd! FileType python nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
 
@@ -605,8 +593,10 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 au InsertLeave * set nopaste
 
 
-"F8 Yapf代码格式化
-nnoremap <F8> :call Yapf()<cr>
+""F8 Yapf代码格式化
+"nnoremap <F8> :call Yapf()<cr>
+"<leader>f Yapf代码格式化
+nnoremap <leader>f :call Yapf()<cr>
 
 " F5 set paste问题已解决, 粘贴代码前不需要按F5了
 " F5 粘贴模式paste_mode开关,用于有格式的代码粘贴
@@ -629,6 +619,7 @@ map <C-l> <C-W>l
 
 " http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
 " Zoom / Restore window.
+" 在单个tab标签下，<leader>z可以最大化/最小化当前分屏
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
         execute t:zoom_winrestcmd
@@ -690,6 +681,7 @@ noremap * *:set hlsearch<cr>
 
 
 " switch # *
+" 调整后#向下搜索，*向上搜索
 nnoremap # *
 nnoremap * #
 
@@ -711,18 +703,18 @@ nnoremap ]b :bnext<cr>
 " http://vim.wikia.com/wiki/Alternative_tab_navigation
 " http://stackoverflow.com/questions/2005214/switching-to-a-particular-tab-in-vim
 
-" tab切换
-map <leader>th :tabfirst<cr>
-map <leader>tl :tablast<cr>
+"" tab切换
+"map <leader>th :tabfirst<cr>
+"map <leader>tl :tablast<cr>
 
-map <leader>tj :tabnext<cr>
-map <leader>tk :tabprev<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprev<cr>
+"map <leader>tj :tabnext<cr>
+"map <leader>tk :tabprev<cr>
+"map <leader>tn :tabnext<cr>
+"map <leader>tp :tabprev<cr>
 
-map <leader>te :tabedit<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabm<cr>
+"map <leader>te :tabedit<cr>
+"map <leader>tc :tabclose<cr>
+"map <leader>tm :tabm<cr>
 
 " normal模式下切换到确切的tab
 noremap <leader>1 1gt
@@ -757,6 +749,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " y$ -> Y Make Y behave like other capitals
+" Y向后复制到行末
 map Y y$
 
 " 复制选中区到系统剪切板中
@@ -771,6 +764,7 @@ vnoremap <leader>y "+y
 map <Leader>sa ggVG"+y
 
 " select block
+" 向下选中内容块
 nnoremap <leader>v V`}
 
 " w!! to sudo & write a file
@@ -869,28 +863,6 @@ endif
 " TEMP 设置, 尚未确定要不要
 "==========================================
 
-" tmux
-" function! WrapForTmux(s)
-"   if !exists('$TMUX')
-"     return a:s
-"   endif
-"
-"   let tmux_start = "\<Esc>Ptmux;"
-"   let tmux_end = "\<Esc>\\"
-"
-"   return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-" endfunction
-"
-" let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-" let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-" allows cursor change in tmux mode
-" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" if exists('$TMUX')
-    " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-" endif
 
 
 "==========================================
@@ -909,7 +881,6 @@ let g:solarized_italic=0
     let g:solarized_termtrans=1
     let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
-    " let g:solarized_termcolors=256
 " }}}
 "color evening
 let g:monokai_term_italic = 1
@@ -1103,10 +1074,6 @@ map <leader>il :IndentLinesToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""IndentLine
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""pyflakes
-" 文件类型检查
-filetype on
-" 文件相关的插件
-filetype plugin on
 " 错误高亮调整
 highlight SpellBad term=reverse ctermbg=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""pyflakes
