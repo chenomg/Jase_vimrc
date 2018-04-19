@@ -1,10 +1,10 @@
 "==========================================
 " Forked from: https://github.com/wklken/k-vim
 " Author:  Jase Chen
-" Version: 2.0
+" Version: 2.1
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-4-12
+" Last_modify: 2018-4-19
 " Platform: Windows/Mac/Linux
 " Sections:
 "       -> Initial Plugin 加载插件
@@ -44,6 +44,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'Vimjas/vim-python-pep8-indent'
 " flake8用于代码检查
 Plugin 'nvie/vim-flake8'
+Plugin 'tell-k/vim-autopep8'
 " 目录树
 Plugin 'scrooloose/nerdtree'
 " nerdtree目录树增强.
@@ -592,11 +593,13 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
 
+"Autopep8格式化
+autocmd FileType python noremap <buffer> <leader>f :call Autopep8()<CR>
 
 ""F8 Yapf代码格式化
 "nnoremap <F8> :call Yapf()<cr>
 "<leader>f Yapf代码格式化
-nnoremap <leader>f :call Yapf()<cr>
+"nnoremap <leader>f :call Yapf()<cr>
 
 " F5 set paste问题已解决, 粘贴代码前不需要按F5了
 " F5 粘贴模式paste_mode开关,用于有格式的代码粘贴
@@ -1077,5 +1080,7 @@ map <leader>il :IndentLinesToggle<CR>
 " 错误高亮调整
 highlight SpellBad term=reverse ctermbg=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""pyflakes
+""""""""""""""""""""""""""""""""""""""""""""""""""""""Autopep8
+""""""""""""""""""""""""""""""""""""""""""""""""""""""Autopep8
 
 "------------------------------------------- end of configs --------------------------------------------
