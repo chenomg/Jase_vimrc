@@ -1081,6 +1081,14 @@ map <leader>il :IndentLinesToggle<CR>
 highlight SpellBad term=reverse ctermbg=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""pyflakes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""Autopep8
+"Disable show diff window
+let g:autopep8_disable_show_diff=1
+
+"Chose diff window type. (default: horizontal)
+"# default
+"let g:autopep8_diff_type='horizontal'
+"let g:autopep8_diff_type='vertical'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""Autopep8
 
 "------------------------------------------- end of configs --------------------------------------------
