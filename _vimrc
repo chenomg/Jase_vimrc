@@ -98,7 +98,7 @@ Plugin 'plasticboy/vim-markdown'
 " markdown预览插件2017-09-26
 "Plugin 'suan/vim-instant-markdown'
 "add author info in any source files
-Plugin 'vim-scripts/AuthorInfo'
+Plugin 'chenomg/AuthorInfo'
 " 字体环绕2017-09-27
 " 详见https://gist.github.com/wilon/ac1fc66f4a79e7b0c161c80877c75c94
 " NormalMode: (word):ys w [ (sentece):ys s [ && VisualMode:选中后 S [
@@ -106,7 +106,7 @@ Plugin 'tpope/vim-surround'
 " repeat 重复插件操作
 Plugin 'tpope/vim-repeat'
 "Yapf格式化代码
-Plugin 'mindriot101/vim-yapf'
+"Plugin 'mindriot101/vim-yapf'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -895,10 +895,10 @@ let g:monokai_gui_italic = 0
 "colorscheme desert
 colorscheme solarized
 
-"设置显示字体fonts
+""设置显示字体fonts
 "set guifont=Consolas:h10 
-set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
-set gfw=幼圆:h10.5:cGB2312
+"set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
+"set gfw=幼圆:h10.5:cGB2312
 
 " 设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
