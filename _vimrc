@@ -106,7 +106,7 @@ Plugin 'tpope/vim-surround'
 " repeat 重复插件操作
 Plugin 'tpope/vim-repeat'
 "Yapf格式化代码
-"Plugin 'mindriot101/vim-yapf'
+Plugin 'mindriot101/vim-yapf'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -597,12 +597,12 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 au InsertLeave * set nopaste
 
 "Autopep8格式化
-autocmd FileType python noremap <buffer> <leader>f :call Autopep8()<CR>
+"autocmd FileType python noremap <buffer> <leader>f :call Autopep8()<CR>
 
 ""F8 Yapf代码格式化
 "nnoremap <F8> :call Yapf()<cr>
 "<leader>f Yapf代码格式化
-"nnoremap <leader>f :call Yapf()<cr>
+nnoremap <leader>f :call Yapf()<cr>
 
 " F5 set paste问题已解决, 粘贴代码前不需要按F5了
 " F5 粘贴模式paste_mode开关,用于有格式的代码粘贴
