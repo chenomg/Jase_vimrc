@@ -4,7 +4,7 @@
 " Version: 2.1
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-4-19
+" Last_modify: 2018-4-20
 " Platform: Windows/Mac/Linux
 " Sections:
 "       -> Initial Plugin 加载插件
@@ -892,6 +892,10 @@ let g:monokai_gui_italic = 0
 "colorscheme desert
 colorscheme solarized
 
+"设置显示字体fonts
+"set guifont=Consolas:h10 
+set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
+set gfw=幼圆:h10.5:cGB2312
 
 " 设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
@@ -1090,5 +1094,22 @@ let g:autopep8_disable_show_diff=1
 "let g:autopep8_diff_type='vertical'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""Autopep8
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""Airline
+" air-line
+"let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""Airline
 
 "------------------------------------------- end of configs --------------------------------------------
