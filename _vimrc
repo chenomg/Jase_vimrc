@@ -97,6 +97,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 " markdown预览插件2017-09-26
 "Plugin 'suan/vim-instant-markdown'
+"add author info in any source files
+Plugin 'vim-scripts/AuthorInfo'
 " 字体环绕2017-09-27
 " 详见https://gist.github.com/wilon/ac1fc66f4a79e7b0c161c80877c75c94
 " NormalMode: (word):ys w [ (sentece):ys s [ && VisualMode:选中后 S [
@@ -105,7 +107,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 "Yapf格式化代码
 Plugin 'mindriot101/vim-yapf'
-
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -574,6 +575,8 @@ nmap <F3> :TagbarToggle<CR>
 "nnoremap <F4> :set wrap! wrap?<CR>
 nmap  <F4> :NERDTreeTabsToggle<cr>
 
+"自动添加作者信息
+nmap <F5> :AuthorInfoDetect<cr>
 "" F5 运行Python Windows
 "autocmd! FileType python nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
 "" F5 运行Python LINUX
@@ -1111,5 +1114,10 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""Airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""AuthorInfo
+let g:vimrc_author='Jase Chen'
+let g:vimrc_email='xxmm@live.cn'
+let g:vimrc_homepage='http://jase.im/'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""AuthorInfo
 
 "------------------------------------------- end of configs --------------------------------------------
