@@ -4,7 +4,7 @@
 " Version: 2.1
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-4-20
+" Last_modify: 2018-4-24
 " Platform: Windows/Mac/Linux
 " Sections:
 "       -> Initial Plugin 加载插件
@@ -566,7 +566,7 @@ nnoremap <F2> :call HideNumber()<CR>
 "F3 结构大纲 Tagbar
 let g:tagbar_width=35
 let g:tagbar_autofocus=1
-let g:tagbar_left = 1
+let g:tagbar_right = 1
 nmap <F3> :TagbarToggle<CR>
 " F3 显示可打印字符开关
 "nnoremap <F3> :set list! list?<CR>
@@ -1110,7 +1110,7 @@ endif
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
+let g:airline_symbols.branch = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""Airline
@@ -1119,5 +1119,19 @@ let g:vimrc_author='Jase Chen'
 let g:vimrc_email='xxmm@live.cn'
 let g:vimrc_homepage='http://jase.im/'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""AuthorInfo
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""vim-markdown
+"disable the folding configuration
+"let g:vim_markdown_folding_disabled = 1
+"Folding level is a number between 1 and 6. By default, if not specified, it is set to 1.
+let g:vim_markdown_folding_level = 6
+let g:vim_markdown_toc_autofit = 1
+"启用隐藏使用vim隐藏配置的标准。
+set conceallevel=2
+"要禁用隐藏而不考虑 conceallevel 设置
+let g:vim_markdown_conceal=0
+"要禁用启用 LaTeX 数学语法的数学隐藏功能
+let g:tex_conceal=""
+let g:vim_markdown_math=1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""vim-markdown
+"
 "------------------------------------------- end of configs --------------------------------------------
