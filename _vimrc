@@ -263,7 +263,7 @@ set scrolloff=7
 " 检测当前系统是否为Mac,并调整启动窗口大小
 function! MySys()
 	if has("win32")
-        function WindowCenterInScreen_win()
+        function! WindowCenterInScreen_win()
             set lines=9999 columns=9999
             let g:windowsSizeFixX = 58
             let g:windowsSizeFixY = 118
@@ -278,7 +278,7 @@ function! MySys()
             let g:windowsSizeHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsSizeFixY
             let g:windowsPosX = ((g:windowsScreenWidth - g:windowsSizeWidth) / 2)
             let g:windowsPosY = ((g:windowsScreenHeight - g:windowsSizeHeight) / 2)
-            exec ‘:winpos ‘ . g:windowsPosX . ‘ ‘ . g:windowsPosY
+            exec ':winpos ' . g:windowsPosX . ' ' . g:windowsPosY
         endfunc
         au GUIEnter * call WindowCenterInScreen_win()
 	elseif has("unix")
