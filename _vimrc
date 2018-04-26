@@ -4,7 +4,7 @@
 " Version: 2.1
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-4-24
+" Last_modify: 2018-4-26
 " Platform: Windows/Mac/Linux
 " Sections:
 "       -> Initial Plugin 加载插件
@@ -579,12 +579,8 @@ nmap  <F4> :NERDTreeTabsToggle<cr>
 nmap <F5> :AuthorInfoDetect<cr>
 "" F5 运行Python Windows
 "autocmd! FileType python nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
-"" F5 运行Python LINUX
-""autocmd! FileType python nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
 " <leader>r 运行Python
 autocmd! FileType python nnoremap <buffer> <leader>r :exec '!python3' shellescape(@%, 1)<cr>
-" F5 运行Python LINUX
-"autocmd! FileType python nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
 
 " F6 语法开关，关闭语法可以加快大文件的展示
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
@@ -744,8 +740,8 @@ nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 autocmd TabLeave * let g:last_active_tab = tabpagenr()
 
 " 新建tab  Ctrl+t
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <leader>t     :tabnew<CR>
+inoremap <leader>t     <Esc>:tabnew<CR>
 
 
 " => 选中及操作改键
@@ -896,7 +892,7 @@ let g:monokai_gui_italic = 0
 colorscheme solarized
 
 ""设置显示字体fonts
-"set guifont=Consolas:h10 
+"set guifont=Consolas:h11 
 "set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
 "set gfw=幼圆:h10.5:cGB2312
 
