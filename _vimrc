@@ -260,28 +260,57 @@ set scrolloff=7
 
 " set winwidth=79
 
+" 检测当前系统是否为Mac,并调整启动窗口大小
+function! MySys()
+	if has("win32")
+        function WindowCenterInScreen_win()
+            set lines=9999 columns=9999
+            let g:windowsSizeFixX = 58
+            let g:windowsSizeFixY = 118
+            let g:windowsScaleX = 7.75
+            let g:windowsScaleY = 17.0
+            let g:windowsPosOldX = getwinposx()
+            let g:windowsPosOldY = getwinposy()
+            let g:windowsScreenWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsPosOldX + g:windowsSizeFixX
+            let g:windowsScreenHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsPosOldY + g:windowsSizeFixY
+            set lines=30 columns=108
+            let g:windowsSizeWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsSizeFixX
+            let g:windowsSizeHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsSizeFixY
+            let g:windowsPosX = ((g:windowsScreenWidth - g:windowsSizeWidth) / 2)
+            let g:windowsPosY = ((g:windowsScreenHeight - g:windowsSizeHeight) / 2)
+            exec ‘:winpos ‘ . g:windowsPosX . ‘ ‘ . g:windowsPosY
+        endfunc
+        au GUIEnter * call WindowCenterInScreen_win()
+	elseif has("unix")
+        function! WindowCenterInScreen_mac()
+            set lines=9999 columns=9999
+            "let g:windowsSizeFixX = 58
+            "let g:windowsSizeFixY = 118
+            let g:windowsSizeFixX = 58
+            let g:windowsSizeFixY = 118
+            "let g:windowsScaleX = 7.75
+            "let g:windowsScaleY = 17.0
+            let g:windowsScaleX = 77.75
+            let g:windowsScaleY = 177
+            let g:windowsPosOldX = getwinposx()
+            let g:windowsPosOldY = getwinposy()
+            let g:windowsScreenWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsPosOldX + g:windowsSizeFixX
+            let g:windowsScreenHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsPosOldY + g:windowsSizeFixY
+            set lines=999 columns=182
+            let g:windowsSizeWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsSizeFixX
+            let g:windowsSizeHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsSizeFixY
+            let g:windowsPosX = ((g:windowsScreenWidth - g:windowsSizeWidth) / 2)
+            let g:windowsPosY = ((g:windowsScreenHeight - g:windowsSizeHeight) / 2)
+            exec ':winpos ' . g:windowsPosX . ' ' . g:windowsPosY
+        endfunc
+        au GUIEnter * call WindowCenterInScreen_mac()
+        " Do Mac stuff hereWindowCenterInScreen_mac
+    endif
+endfunction
+call MySys()
 " 设置gvim启动窗口的位置，以及大小
 "winpos 100 50
-set lines=35 columns=120
-"设置gVim屏幕居中启动
-function! WindowCenterInScreen()
-    set lines=9999 columns=9999
-    let g:windowsSizeFixX = 58
-    let g:windowsSizeFixY = 118
-    let g:windowsScaleX = 7.75
-    let g:windowsScaleY = 17.0
-    let g:windowsPosOldX = getwinposx()
-    let g:windowsPosOldY = getwinposy()
-    let g:windowsScreenWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsPosOldX + g:windowsSizeFixX
-    let g:windowsScreenHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsPosOldY + g:windowsSizeFixY
-    set lines=30 columns=108
-    let g:windowsSizeWidth = float2nr(winwidth(0) * g:windowsScaleX) + g:windowsSizeFixX
-    let g:windowsSizeHeight = float2nr(winheight(0) * g:windowsScaleY) + g:windowsSizeFixY
-    let g:windowsPosX = ((g:windowsScreenWidth - g:windowsSizeWidth) / 2)
-    let g:windowsPosY = ((g:windowsScreenHeight - g:windowsSizeHeight) / 2)
-    exec ':winpos ' . g:windowsPosX . ' ' . g:windowsPosY
-endfunc
-au GUIEnter * call WindowCenterInScreen()
+"set lines=35 columns=120
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
 "set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
@@ -922,9 +951,6 @@ highlight SpellLocal term=underline cterm=underline
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
     " 检测到错误和警告时的标志
 let g:syntastic_error_symbol='e'
 let g:syntastic_warning_symbol='w'
