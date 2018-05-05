@@ -107,6 +107,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 "Yapf格式化代码
 Plugin 'mindriot101/vim-yapf'
+Plugin 'aradunovic/perun.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -185,8 +186,8 @@ set noswapfile
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
-" 突出显示当前列
-set cursorcolumn
+" 突出显示当前列highlight
+"set cursorcolumn
 " 突出显示当前行
 set cursorline
 
@@ -918,7 +919,8 @@ let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 0
 "colorscheme monokai
 "colorscheme desert
-colorscheme solarized
+"colorscheme solarized
+colorscheme perun
 
 ""设置显示字体fonts
 "set guifont=Consolas:h11 
@@ -1131,8 +1133,8 @@ endif
 " unicode symbols
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.branch = '∥'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.branch = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""Airline
