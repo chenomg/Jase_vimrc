@@ -56,7 +56,7 @@ Plugin 'vim-scripts/indentpython.vim'
 " 语法检查和高亮
 Plugin 'scrooloose/syntastic'
 " solarized 主题风格
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 " 将代码行最后无效的空格标红
 Plugin 'bronson/vim-trailing-whitespace'
 " CTRLP[文件搜索]
@@ -89,9 +89,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
 " 缩进线
 Plugin 'Yggdroot/indentLine'
-" Sublime的配色方案
-"Plugin 'sickill/vim-monokai'
-Plugin 'crusoexia/vim-monokai'
 " markdown插件2017-09-26
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -107,7 +104,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 "Yapf格式化代码
 Plugin 'mindriot101/vim-yapf'
-Plugin 'aradunovic/perun.vim'
+Plugin 'flazz/vim-colorschemes'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -917,10 +914,13 @@ let g:solarized_italic=0
 "color evening
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 0
-"colorscheme monokai
+" Sublime的配色方案
+colorscheme monokai
 "colorscheme desert
 "colorscheme solarized
-colorscheme perun
+"colorscheme molokai
+"colorscheme perun
+colorscheme Tomorrow-Night-Eighties
 
 ""设置显示字体fonts
 "set guifont=Consolas:h11 
