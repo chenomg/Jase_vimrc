@@ -1141,7 +1141,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""AuthorInfo
 let g:vimrc_author='Jase Chen'
 let g:vimrc_email='xxmm@live.cn'
-let g:vimrc_homepage='http://jase.im/'
+let g:vimrc_homepage='https://jase.im/'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""AuthorInfo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""vim-markdown
 "disable the folding configuration
