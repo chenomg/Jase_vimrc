@@ -4,7 +4,7 @@
 " Version: 2.1
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-4-26
+" Last_modify: 2018-9-17
 " Platform: Windows/Mac/Linux
 " Sections:
 "       -> Initial Plugin 加载插件
@@ -20,7 +20,7 @@
 "==========================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  依赖项目                                  "
-"                           Yapf, fyflakes, ctags                         "
+"                    Yapf, fyflakes, ctags, jedi, autopep8                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "==========================================
@@ -223,6 +223,9 @@ set magic
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+
+" 自动切换工作目录
+set autochdir
 
 "==========================================
 " Display Settings 展示/排版等界面格式设置
