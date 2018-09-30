@@ -1,10 +1,9 @@
 "==========================================
-" Forked from: https://github.com/wklken/k-vim
 " Author:  Jase Chen
 " Version: 2.1
 " Email: xxmm@live.cn
 " ReadMe: README.md
-" Last_modify: 2018-9-17
+" Last_modify: 2018-9-30
 " Platform: Windows/Mac/Linux
 " Sections:
 "       -> Initial Plugin 加载插件
@@ -773,6 +772,9 @@ autocmd TabLeave * let g:last_active_tab = tabpagenr()
 nnoremap <leader>t     :tabnew<CR>
 inoremap <leader>t     <Esc>:tabnew<CR>
 
+" 以16进制查看
+nnoremap <leader>h     :%!xxd<CR>
+nnoremap <leader>hh     :%!xxd -r<CR>
 
 " => 选中及操作改键
 
