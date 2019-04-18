@@ -1,0 +1,58 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.iconTheme": "vs-minimal",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["k", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+          "before": ["<leader>", "r"],
+          "after": ["<F-5>"]
+        },
+        {
+          "before": ["<leader>", "d"],
+          "after": ["d", "d"]
+        },
+        {
+          "before": ["<leader>", "w"],
+          "commands": [":w"]
+        },
+        {
+            "before": ["Z", "Z"],
+            "commands": [
+                ":wq"
+            ]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "commands": [
+                ":q"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+}
